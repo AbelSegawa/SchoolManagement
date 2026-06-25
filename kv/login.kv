@@ -1,0 +1,24 @@
+<LoginScreen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        padding: 40
+        spacing: 20
+
+        MDLabel:
+            text: "School System Login"
+            halign: "center"
+            font_style: "H4"
+
+        MDTextField:
+            hint_text: "Username"
+            id: username
+
+        MDTextField:
+            hint_text: "Password"
+            password: True
+            id: password
+
+        MDRaisedButton:
+            text: "Login"
+            pos_hint: {"center_x": 0.5}
+            on_release: root.login()
