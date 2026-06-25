@@ -1,19 +1,20 @@
 from flask import Flask, render_template, request, redirect, url_for
-from database.db import init_db, get_conn
 
 app = Flask(__name__)
 
 @app.route('/')
 def login():
-    return render_template('login.html')
+    return render_template('login.html', error=None)
 
 @app.route('/dashboard', methods=['POST'])
 def dashboard():
     username = request.form['username']
     password = request.form['password']
-    # TODO: check user in DB
-    return render_template('dashboard.html', user=username)
-
+    
+    if username == 'abel' and password == 'abel123':
+        return render_template('dashboard.html', user=username)
+    else:
+        return render_template('login.html', error="Wrong username or password")
+    
 if __name__ == '__main__':
-    init_db()
     app.run(host='0.0.0.0', port=5000)

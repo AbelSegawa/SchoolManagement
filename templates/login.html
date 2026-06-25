@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head><title>Login</title></head>
+<head>
+    <title>Login</title>
+    <style>
+        body {font-family: Arial; text-align: center; padding-top: 100px; background: #0d1117; color: #c9d1d9;}
+        .box {background: #161b22; padding: 30px; border-radius: 10px; width: 300px; margin: auto;}
+        input {width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #30363d; background: #0d1117; color: #c9d1d9;}
+        button {width: 100%; padding: 10px; background: #238636; color: white; border: none; border-radius: 5px;}
+        .error {color: #f85149; margin-bottom: 10px;}
+    </style>
+</head>
 <body>
-<h1>School System Login</h1>
+<div class="box">
+<h1>School System</h1>
+{% if error %}<div class="error">{{error}}</div>{% endif %}
 <form method="post" action="/dashboard">
-<input name="username" placeholder="Username" required><br><br>
-<input name="password" type="password" placeholder="Password" required><br><br>
+<input name="username" placeholder="Username" required>
+<input name="password" type="password" placeholder="Password" required>
 <button>Login</button>
 </form>
+<p style="font-size: 12px; margin-top: 20px;">Demo: abel / abel123</p>
+</div>
 </body>
 </html>
